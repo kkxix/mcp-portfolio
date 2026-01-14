@@ -1,6 +1,12 @@
 ---
+categories: 
+  - R
+  - Mapping
+  - Spatial Analysis
+  - Digital Equity
 title: "Assignment 2: Spatial Analysis and Visualization"
-subtitle: "Healthcare Access and Equity in Pennsylvania"
+subtitle: "Spatial Access Equity"
+description: "This project explores equitable access to healthcare in Pennsylvania and access to free Philadelphia Wifi and Computer centers."
 author: "Katie Knox"
 date: "10-2-2025"
 format: 
@@ -13,6 +19,7 @@ format:
 execute:
   warning: false
   message: false
+image: header_image.png
 ---
 
 ## Assignment Overview

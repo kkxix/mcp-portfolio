@@ -1,8 +1,11 @@
 ---
+categories:
+  - R
+  - Data Reliability
 title: "Assignment 1: Census Data Quality for Policy Decisions"
 subtitle: "Evaluating Data Reliability for Algorithmic Decision-Making"
-author: "Katherine (Katie) Knox"
-date: today
+author: "Katie Knox"
+date: "09-29-2025"
 format: 
   html:
     code-fold: false
@@ -12,6 +15,7 @@ format:
 execute:
   warning: false
   message: false
+image: schoolcraft.jpg
 ---
 
 # Assignment Overview
@@ -30,27 +34,9 @@ Drawing on our Week 2 discussion of algorithmic bias, you need to assess not jus
 - Identify potential equity implications of data reliability issues
 - Create professional documentation for policy stakeholders
 
-## Submission Instructions
-
-**Submit by posting your updated portfolio link on Canvas.** Your assignment should be accessible at `your-portfolio-url/assignments/assignment_1/`
-
-Make sure to update your `_quarto.yml` navigation to include this assignment under an "Assignments" menu.
-
-# Part 1: Portfolio Integration
-
-Create this assignment in your portfolio repository under an `assignments/assignment_1/` folder structure. Update your navigation menu to include:
-
-```
-- text: Assignments
-  menu:
-    - href: assignments/assignment_1/your_file_name.qmd
-      text: "Assignment 1: Census Data Exploration"
-```
-If there is a special character like comma, you need use double quote mark so that the quarto can identify this as text
-
-# Setup
-
 ```{r setup}
+#| echo: false
+
 # Load required packages (hint: you need tidycensus, tidyverse, and knitr)
 library(tidyverse)
 library(tidycensus)
@@ -69,7 +55,7 @@ my_state <- 'Michigan'
 
 ## 2.1 Data Retrieval
 
-**Your Task:** Use `get_acs()` to retrieve county-level data for your chosen state.
+**Task:** Use `get_acs()` to retrieve county-level data for your chosen state.
 
 **Requirements:**
 - Geography: county level
@@ -103,7 +89,7 @@ head(mi_county_pop_income)
 
 ## 2.2 Data Quality Assessment
 
-**Your Task:** Calculate margin of error percentages and create reliability categories.
+**Task:** Calculate margin of error percentages and create reliability categories.
 
 **Requirements:**
 - Calculate MOE percentage: (margin of error / estimate) * 100
@@ -146,7 +132,7 @@ income_reliability_summary <- mi_county_pop_income %>%
 
 ## 2.3 High Uncertainty Counties
 
-**Your Task:** Identify the 5 counties with the highest MOE percentages.
+**Task:** Identify the 5 counties with the highest MOE percentages.
 
 **Requirements:**
 - Sort by MOE percentage (highest first)
@@ -188,7 +174,7 @@ Assistance programs and policies aimed at community development may look at medi
 
 ## 3.1 Focus Area Selection
 
-**Your Task:** Select 2-3 counties from your reliability analysis for detailed tract-level study.
+**Task:** Select 2-3 counties from your reliability analysis for detailed tract-level study.
 
 **Strategy:** Choose counties that represent different reliability levels (e.g., 1 high confidence, 1 moderate, 1 low confidence) to compare how data quality varies.
 
@@ -222,7 +208,7 @@ I chose:
 
 ## 3.2 Tract-Level Demographics
 
-**Your Task:** Get demographic data for census tracts in your selected counties.
+**Task:** Get demographic data for census tracts in your selected counties.
 
 **Requirements:**
 
@@ -270,7 +256,7 @@ demographics <- demographics %>%
 
 ## 3.3 Demographic Analysis
 
-**Your Task:** Analyze the demographic patterns in your selected areas.
+**Task:** Analyze the demographic patterns in selected areas.
 
 ```{r demographic-analysis}
 # Find the tract with the highest percentage of Hispanic/Latino residents
@@ -309,7 +295,7 @@ avg_demo_by_tract %>%
 
 ## 4.1 MOE Analysis for Demographic Variables
 
-**Your Task:** Examine margins of error for demographic variables to see if some communities have less reliable data.
+**Task:** Examine margins of error for demographic variables to see if some communities have less reliable data.
 
 **Requirements:**
 - Calculate MOE percentages for each demographic variable
@@ -360,7 +346,7 @@ kable(reliability_summary,
 
 ## 4.2 Pattern Analysis
 
-**Your Task:** Investigate whether data quality problems are randomly distributed or concentrated in certain types of communities.
+**Task:** Investigate whether data quality problems are randomly distributed or concentrated in certain types of communities.
 
 ```{r pattern-analysis}
 # Group tracts by whether they have high MOE issues
@@ -427,15 +413,6 @@ Given that there was not a single tract in the three counties where all three ra
 
 ## 5.1 Analysis Integration and Professional Summary
 
-**Your Task:** Write an executive summary that integrates findings from all four analyses.
-
-**Executive Summary Requirements:**
-
-1. **Overall Pattern Identification**: What are the systematic patterns across all your analyses?
-2. **Equity Assessment**: Which communities face the greatest risk of algorithmic bias based on your findings?
-3. **Root Cause Analysis**: What underlying factors drive both data quality issues and bias risk?
-4. **Strategic Recommendations**: What should the Department implement to address these systematic issues?
-
 **Executive Summary:**
 
 Accross the data I analyzed, the clearest pattern that emerged is that the more homogenous a tract, the more unreliable the estimates. We also see that this unreliability is not evenly shared, but whatever population is in the minority faces more unreliable estimates, leading to a sort of double marginalization, where an already marginalized population is less accurately represented in data, and decisions made on these data could be very misguided.  
@@ -448,7 +425,7 @@ The Department could address this by supplementing census data with further samp
 
 ## 6.3 Specific Recommendations
 
-**Your Task:** Create a decision framework for algorithm implementation.
+**Task:** Create a decision framework for algorithm implementation.
 
 ```{r recommendations-data}
 # Create a summary table using your county reliability data
@@ -482,8 +459,6 @@ income_summary %>%
 ```
 
 **Key Recommendations:**
-
-**Your Task:** Use your analysis results to provide specific guidance to the department.
 
 1. **Counties suitable for immediate algorithmic implementation:** 
 
@@ -610,17 +585,3 @@ As noted above, Given that there was not a single tract in the Kalamazoo, Crawfo
 Given that I chose three relatively low population counties in a state with a vary large White majority, the conclusions made about the link between racial homogeneity and reliability of minority estimates is a limited conclusion. 
 
 ---
-
-## Submission Checklist
-
-Before submitting your portfolio link on Canvas:
-
-- [ ] All code chunks run without errors
-- [ ] All "[Fill this in]" prompts have been completed
-- [ ] Tables are properly formatted and readable
-- [ ] Executive summary addresses all four required components
-- [ ] Portfolio navigation includes this assignment
-- [ ] Census API key is properly set 
-- [ ] Document renders correctly to HTML
-
-**Remember:** Submit your portfolio URL on Canvas, not the file itself. Your assignment should be accessible at `your-portfolio-url/assignments/assignment_1/your_file_name.html`

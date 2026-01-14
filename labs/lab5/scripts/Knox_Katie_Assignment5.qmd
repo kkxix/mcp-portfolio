@@ -1,7 +1,12 @@
 ---
+categories:
+  - R
+  - Space-time Analysis
+  - Transportation
 title: "Assignment 5: Space-Time Prediction of Bike Share Demand"
 author: "Katie Knox"
 date: "11-24-2025"
+description: "This project uses space-time analysis to attempt to predict bikeshare demand in Philadelphia by station."
 format: 
   html:
     code-fold: false
@@ -12,6 +17,7 @@ format:
 execute:
   warning: false
   message: false
+image: station_map.png
 ---
 
 ## Part 1: Q4 (October - December) 2024 Data
@@ -130,7 +136,7 @@ indego <- indego %>%
   )
 
 # Look at temporal features
-head(indego %>% select(start_datetime, interval60, week, dotw, hour, weekend))
+head(indego %>% dplyr::select(start_datetime, interval60, week, dotw, hour, weekend))
 ```
 
 #### Trips Over Time
@@ -313,7 +319,7 @@ stations_for_map <- indego %>%
   distinct(start_station, start_lat, start_lon) %>%
   filter(!is.na(start_lat), !is.na(start_lon)) %>%
   left_join(
-    stations_census %>% select(start_station, Med_Inc),
+    stations_census %>% dplyr::select(start_station, Med_Inc),
     by = "start_station"
   ) %>%
   mutate(has_census = !is.na(Med_Inc))
@@ -326,7 +332,7 @@ summary(stations_for_map$has_census)
 indego_census <- indego %>%
   left_join(
     stations_census %>% 
-      select(start_station, Med_Inc, Percent_Taking_Transit, 
+      dplyr::select(start_station, Med_Inc, Percent_Taking_Transit, 
              Percent_White, Total_Pop),
     by = "start_station"
   )
@@ -337,7 +343,7 @@ stations_for_map <- indego %>%
   distinct(start_station, start_lat, start_lon) %>%
   filter(!is.na(start_lat), !is.na(start_lon)) %>%
   left_join(
-    stations_census %>% select(start_station, Med_Inc),
+    stations_census %>% dplyr::select(start_station, Med_Inc),
     by = "start_station"
   ) %>%
   mutate(has_census = !is.na(Med_Inc))
@@ -385,7 +391,7 @@ indego_census <- indego %>%
   filter(start_station %in% valid_stations) %>%
   left_join(
     stations_census %>% 
-      select(start_station, Med_Inc, Percent_Taking_Transit, 
+      dplyr::select(start_station, Med_Inc, Percent_Taking_Transit, 
              Percent_White, Total_Pop),
     by = "start_station"
   )
@@ -411,7 +417,7 @@ weather_processed <- weather_data %>%
     Precipitation = ifelse(is.na(p01i), 0, p01i),  # Hourly precip in inches
     Wind_Speed = sknt  # Wind speed in knots
   ) %>%
-  select(interval60, Temperature, Precipitation, Wind_Speed) %>%
+  dplyr::select(interval60, Temperature, Precipitation, Wind_Speed) %>%
   distinct()
 
 # Check for missing hours and interpolate if needed
@@ -420,7 +426,7 @@ weather_complete <- weather_processed %>%
   fill(Temperature, Precipitation, Wind_Speed, .direction = "down")
 
 # Look at the weather
-summary(weather_complete %>% select(Temperature, Precipitation, Wind_Speed))
+summary(weather_complete %>% dplyr::select(Temperature, Precipitation, Wind_Speed))
 ```
 
 #### Visualize Weather Patterns
@@ -520,7 +526,7 @@ study_panel <- study_panel %>%
   left_join(weather_complete, by = "interval60")
 
 # Check for missing values
-summary(study_panel %>% select(Trip_Count, Temperature, Precipitation))
+summary(study_panel %>% dplyr::select(Trip_Count, Temperature, Precipitation))
 ```
 
 #### Create Temporal Lag Variables
@@ -933,7 +939,7 @@ ggplot(temporal_errors, aes(x = time_of_day, y = MAE, fill = day_type)) +
 # Join demographic data to station errors
 station_errors_demo <- station_errors %>%
   left_join(
-    station_attributes %>% select(start_station, Med_Inc, Percent_Taking_Transit, Percent_White),
+    station_attributes %>% dplyr::select(start_station, Med_Inc, Percent_Taking_Transit, Percent_White),
     by = "start_station"
   ) %>%
   filter(!is.na(Med_Inc))
@@ -1128,7 +1134,7 @@ ggplot() +
 study_panel <- study_panel %>%
   left_join(
     stations_sf %>% 
-      select(start_station, nearby_roads, nearby_bikelanes, nearby_stations),
+      dplyr::select(start_station, nearby_roads, nearby_bikelanes, nearby_stations),
     by = "start_station"
   )
 ```

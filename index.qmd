@@ -1,13 +1,10 @@
 ---
-title: "MUSA 5080 Portfolio"
+title: "MCP Portfolio"
 ---
 
 # Welcome to My Portfolio
 
-This portfolio documents my learning journey in Public Policy Analytics (MUSA 5080).
-
-## About This Course
-Advanced spatial analysis and data science for urban planning and public policy.
+This portfolio showcases my significant coursework and projects from the Master of City Planning program at University of Pennsylvania Weitzman School of Design. 
 
 ## Portfolio Structure
 - **Weekly Notes:** My learning reflections and key concepts

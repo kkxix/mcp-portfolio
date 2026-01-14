@@ -1,7 +1,11 @@
 ---
+categories:
+  - R
+  - Predictive Modeling
 title: "Assignment 4: Spatial Predictive Analysis"
 author: "Katie Knox"
 date: "11-16-2025"
+description: "This project explores (largely problematic) crime prediction modeling in Chicago based on proximity to street light outages."  
 format: 
   html:
     code-fold: false
@@ -12,6 +16,7 @@ format:
 execute:
   warning: false
   message: false
+image: chicago_hotspots.png
 ---
 
 ```{r}

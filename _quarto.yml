@@ -3,48 +3,14 @@ project:
   output-dir: docs
 
 website:
-  title: "Katie Knox - MUSA 5080 Portfolio"
+  title: "Katie Knox - MCP Portfolio"
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - text: "Weekly Notes"
-        menu:
-          - href: weekly-notes/
-            text: "All Note1s"
-          - href: weekly-notes/week-01-notes.qmd
-            text: "Week 1 Notes"
-          - href: weekly-notes/week-02-notes.qmd
-            text: "Week 2 Notes"
-          - href: weekly-notes/week-03-notes.qmd
-            text: "Week 3 Notes"
-          - href: weekly-notes/week-04-notes.qmd
-            text: "Week 4 Notes"   
-          - href: weekly-notes/week-05-notes.qmd
-            text: "Week 5 Notes" 
-          - href: weekly-notes/week-06-notes.qmd
-            text: "Week 6 Notes"  
-          - href: weekly-notes/week-07-notes.qmd
-            text: "Week 7 Notes"   
-          - href: weekly-notes/week-09-notes.qmd
-            text: "Week 9 Notes"   
-      - text: "Labs"
-        menu:
-          - href: labs/
-            text: "All labs"
-          - href: labs/lab0/scripts/lab0_template.qmd
-            text: "Lab0"
-      - text: "Assignments"
-        menu:
-          - href: labs/lab1/scripts/assignment1_kk.qmd
-            text: "Assignment 1: Census Data Exploration"  
-          - href: labs/lab2/Knox_Katie_Assignment2.qmd
-            text: "Assignment 2: Spatial Analysis and Visualization"
-          - href: labs/lab_4/Knox_Katie_Assignment4.qmd
-            text: "Assignment 4: Spatial Predictive Analysis" 
-          - href: labs/lab5/scripts/Knox_Katie_Assignment5.qmd
-            text: "Assignment 5: Space-Time Prediction of Bike Share Demand" 
-
+      - href: labs
+        text: MUSA 5080 Assignments
+        
 format:
   html:
     theme: cosmo
