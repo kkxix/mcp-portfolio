@@ -46,7 +46,7 @@ library(patchwork)
 # Get rid of scientific notation. We gotta look good!
 options(scipen = 999)
 
-census_api_key("42bf8a20a3df1def380f330cf7edad0dd5842ce6")
+census_api_key(Sys.getenv("CENSUS_API_KEY"))
 ```
 
 ```{r themes}

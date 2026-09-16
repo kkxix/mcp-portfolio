@@ -20,3 +20,15 @@ Create a new file `weekly-notes/week-XX-notes.qmd` for each week.
 ### Example Portfolio
 See what you're building toward: **[Dr. Delmelle's Sample Portfolio](https://ecdelmelle.github.io/MUSA-5080-instructor-portolio/)**
 
+
+## Setup: Census API key
+
+This project reads a Census API key from the environment rather than hardcoding it.
+
+1. Copy `.Renviron.example` to `.Renviron` in the project root.
+2. Replace `your_key_here` with your own key (request one at
+   <https://api.census.gov/data/key_signup.html>).
+3. Restart R so the variable is loaded.
+
+The code calls `census_api_key(Sys.getenv("CENSUS_API_KEY"))`. `.Renviron` is
+gitignored and must not be committed.

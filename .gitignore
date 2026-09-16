@@ -6,3 +6,13 @@
 /.quarto/
 
 **/*.quarto_ipynb
+.Renviron
+.Renviron.local
+.DS_Store
+.Rproj.user/
+.RDataTmp
+.quarto/
+.venv/
+node_modules/
+*.pt
+.cursor/

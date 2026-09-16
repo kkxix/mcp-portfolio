@@ -42,7 +42,7 @@ library(tidyverse)
 library(tidycensus)
 library(knitr)
 # Set your Census API key
-census_api_key(Sys.getenv("47d7ac5fc6fea73d0b5c6df507601e4268de5a6e"))
+census_api_key(Sys.getenv("CENSUS_API_KEY"))
 
 
 # Choose your state for analysis - assign it to a variable called my_state

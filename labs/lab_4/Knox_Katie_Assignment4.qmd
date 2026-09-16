@@ -43,8 +43,9 @@ library(MASS)
 library(spatstat)
 library(raster)
 library(scales)
+library(here)
 
-census_api_key("42bf8a20a3df1def380f330cf7edad0dd5842ce6")
+census_api_key(Sys.getenv("CENSUS_API_KEY"))
 ```
 ## Part 1: Collect 311 Violation Data
 

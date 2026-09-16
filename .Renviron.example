@@ -1,0 +1,5 @@
+# Copy this file to `.Renviron` in the project root and fill in your own key.
+# `.Renviron` is gitignored and must never be committed.
+# Request a Census API key at: https://api.census.gov/data/key_signup.html
+# Restart R after editing so the variable is picked up.
+CENSUS_API_KEY=your_key_here

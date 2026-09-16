@@ -72,7 +72,7 @@ library(ggspatial)
 library(ggnewscale)
 library(kableExtra)
 
-census_api_key("42bf8a20a3df1def380f330cf7edad0dd5842ce6")
+census_api_key(Sys.getenv("CENSUS_API_KEY"))
 ```
 
 ```{r}
